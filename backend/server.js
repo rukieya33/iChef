@@ -20,7 +20,7 @@ client.connect()
 function insertData(insertQuery, item)
 {
 
-client.query(insertQuery, [jsonData])
+client.query(insertQuery, [item])
   .then(res => {
     console.log('Data inserted:', res.rows[0]);
   })
