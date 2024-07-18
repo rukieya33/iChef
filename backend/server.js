@@ -17,7 +17,7 @@ client.connect()
   .then(() => console.log('Connected to PostgreSQL'))
   .catch(err => console.error('Connection error', err.stack));
 
-function insert()
+function insertData(insertQuery, item)
 {
 
 client.query(insertQuery, [jsonData])
@@ -44,7 +44,7 @@ app.post('/sign_up', async (req, res) => {
   `;
   
     const item = req.body;
-    const result = insert(insertQuery, item)
+    const result = insertData(insertQuery, item)
     res.status(201).json(result);
   } catch (err) {
     res.status(500).send(err.message);
