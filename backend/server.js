@@ -35,13 +35,14 @@ client.query(insertQuery, [jsonData])
 }
   // Create
 app.post('/sign_up', async (req, res) => {
-  const insertQuery = `
-  INSERT INTO registration (sign_up_data)
-  VALUES ($1)
-  RETURNING *;
-`;
 
   try {
+    const insertQuery = `
+    INSERT INTO registration (sign_up_data)
+    VALUES ($1)
+    RETURNING *;
+  `;
+  
     const item = req.body;
     const result = insert(insertQuery, item)
     res.status(201).json(result);
