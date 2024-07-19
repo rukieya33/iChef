@@ -57,7 +57,7 @@ app.post('/sign_up', async (req, res) => {
 app.get('/sign_up', (req, res) => {
   if(req.body != null)
   {
-  res.send(JSON.stringify({req.body}));
+  res.send(JSON.stringify(req.body));
   }
   else{
     res.send("Unsuccessful or no data sent")
