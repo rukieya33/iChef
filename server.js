@@ -1,9 +1,8 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
 const port = 3000;
 let db;
-app.use(cors());
+
 const { Client } = require('pg');
 
 const client = new Client({
@@ -36,7 +35,7 @@ client.query(insertQuery, [item])
   })
 }
   // Create
-app.post('/sign_up', (req, res) => {
+app.post('/sign_up', async (req, res) => {
 
   try {
     const insertQuery = `
@@ -57,7 +56,7 @@ app.post('/sign_up', (req, res) => {
 // Read
 app.get('/sign_up', (req, res) => {
 
-  res.send(req.body);
+  res.send(JSON.stringify(req.body));
 
 });
 
