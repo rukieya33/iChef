@@ -55,13 +55,9 @@ app.post('/sign_up', async (req, res) => {
 
 // Read
 app.get('/sign_up', (req, res) => {
-  if(req.body != null)
-  {
+
   res.send(JSON.stringify(req.body));
-  }
-  else{
-    res.send("Unsuccessful or no data sent")
-  }
+
 });
 
 // Update
