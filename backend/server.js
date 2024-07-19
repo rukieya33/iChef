@@ -23,6 +23,7 @@ function insertData(insertQuery, item)
 client.query(insertQuery, [item])
   .then(res => {
     console.log('Data inserted:', res.rows[0]);
+    return res.rows
   })
   .catch(err => {
     console.error('Error inserting data', err.stack);
@@ -56,7 +57,7 @@ app.post('/sign_up', async (req, res) => {
 app.get('/sign_up', (req, res) => {
   if(req.body != null)
   {
-  res.send({"message" : "successfully added !", "data" : req.body});
+  res.send(JSON.stringify({req.body}));
   }
   else{
     res.send("Unsuccessful or no data sent")
