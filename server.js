@@ -4,7 +4,7 @@ const port = 3000;
 let db;
 
 const { Client } = require('pg');
-
+//connects database
 const client = new Client({
   user: 'postgres',
   host: 'localhost',
